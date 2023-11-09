@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="/styles/index.html" />
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin: 8px;
+      }
+
+      .about-section {
+        padding: 50px;
+        text-align: center;
+        background-color: #474e5d;
+        color: white;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .container::after,
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+
+      .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .button:hover {
+        background-color: #555;
+      }
+
+      @media screen and (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="about-section">
+      <h1>About Us Page</h1>
+      <p>Some text about who we are and what we do.</p>
+      <p>
+        Introducing our cutting-edge fitness and gym app, designed to
+        revolutionize your fitness journey and enhance your overall well-being.
+        Our app is a comprehensive fitness companion, bringing the gym
+        experience to your fingertips, and now seamlessly integrated into your
+        website for easy access. With our app, you can customize workouts
+        tailored to your fitness level and goals. Whether you're a beginner or a
+        seasoned athlete, our app provides personalized exercise routines and
+        nutrition plans to optimize your results. Track your progress, set
+        goals, and monitor your achievements all in one place. Stay motivated
+        and engaged with a variety of features, including video demonstrations,
+        virtual coaching, and community support. Connect with like-minded
+        individuals, share experiences, and celebrate milestones together,
+        fostering a sense of camaraderie and inspiration. Our app ensures
+        convenience by allowing you to access workouts anytime, anywhere. From
+        strength training to yoga, cardio to HIIT, we offer a diverse range of
+        exercises to cater to your preferences. Join us on this fitness journey
+        and experience the transformative power of our gym app. Embrace a
+        healthier, fitter lifestyle and elevate your fitness game with our
+        innovative fitness and gym app available on your website. Your path to a
+        better you starts here!.
+      </p>
+    </div>
+
+    <h2 style="text-align: center">Our Team</h2>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="/assets/images/halem.jpeg" alt="Jane" style="width: 100%" />
+          <div class="container">
+            <h2>halem</h2>
+            <p class="title">CEO & Founder</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+            <p>jane@example.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/assets/images/jer.jpeg" alt="Mike" style="width: 100%" />
+          <div class="container">
+            <h2>jerin george</h2>
+            <p class="title">Art Director</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+            <p>mike@example.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/assets/images/che.jpeg" alt="John" style="width: 100%" />
+          <div class="container">
+            <h2>cherian jacob</h2>
+            <p class="title">Designer</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+            <p>john@example.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+/* Style the header */
+header {
+    background-color: #639dba;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Style sections */
+section {
+    margin: 2rem;
+    padding: 1rem;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+/* Style forms */
+form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Style buttons */
+button {
+    background-color: #090909;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style results */
+#muscle-results, #weight-results {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+body
+{
+    background-color: azure;
+}

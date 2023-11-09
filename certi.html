@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Certificate Generator</title>
+    <br />
+    <br />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      .certificate {
+        border: 12px solid #ff0d0d;
+        padding: 20px;
+        max-width: 600px;
+        margin: 10px auto;
+        background-color: #9db5ce;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      #nameInput {
+        width: 200px;
+        padding: 5px;
+      }
+
+      #generateButton {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      #generateButton:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Certificate Generator</h1>
+    <form id="certificateForm">
+      <label for="nameInput">Enter your name:</label>
+      <input type="text" id="nameInput" required />
+      <button type="button" id="generateButton">Generate Certificate</button>
+    </form>
+    <div class="certificate" id="certificateView" style="display: none">
+      <h1>Certificate of Achievement</h1>
+      <p>This is to certify that</p>
+      <p id="certificateName">[Name]</p>
+      <p>has successfully completed the course on hercules</p>
+    </div>
+
+    <script>
+      document
+        .getElementById("generateButton")
+        .addEventListener("click", function () {
+          const name = document.getElementById("nameInput").value;
+          const certificateName = document.getElementById("certificateName");
+          certificateName.textContent = name;
+          document.getElementById("certificateView").style.display = "block";
+        });
+    </script>
+  </body>
+</html>

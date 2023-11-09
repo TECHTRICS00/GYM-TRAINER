@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background: linear-gradient(to bottom, #32d83826, #2196f3);
+        text-align: center;
+      }
+      .progress-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+      }
+      .progress-bar {
+        width: 50%;
+        height: 30px;
+        background-color: #cb8a6a;
+        border: 1px solid #b24c4c;
+        position: relative;
+      }
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      #certificate-section {
+        display: none;
+      }
+      #video-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      video {
+        width: 80%;
+        max-width: 640px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="video-section">
+      <h2>Video Section</h2>
+      <video id="myVideo" controls>
+        <source src="your_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h1>Your Task Bars</h1>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress1">0%</div>
+      <button onclick="increaseProgress(1)">DAY 1</button>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress2">0%</div>
+      <button onclick="increaseProgress(2)">DAY2</button>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress3">0%</div>
+      <button onclick="increaseProgress(3)">DAY 3</button>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress4">0%</div>
+      <button onclick="increaseProgress(4)">DAY 4</button>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress5">0%</div>
+      <button onclick="increaseProgress(5)">DAY 5</button>
+    </div>
+
+    <div id="certificate-section">
+      <h2>Certificate Section</h2>
+      <a href="certi.html" download>
+        <button>Download Certificate</button>
+      </a>
+    </div>
+
+    <script>
+      let progressBars = [80, 80, 80, 80, 80];
+
+      function increaseProgress(taskNumber) {
+        if (progressBars[taskNumber - 1] < 100) {
+          progressBars[taskNumber - 1] += 20;
+          document.getElementById(`progress${taskNumber}`).style.width =
+            progressBars[taskNumber - 1] + "%";
+          document.getElementById(`progress${taskNumber}`).textContent =
+            progressBars[taskNumber - 1] + "%";
+        }
+
+        if (progressBars.every((progress) => progress >= 100)) {
+          document.getElementById("certificate-section").style.display =
+            "block";
+        }
+      }
+    </script>
+  </body>
+</html>
