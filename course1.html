@@ -1,101 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <title>Video Player</title>
     <style>
-      body {
-        background: linear-gradient(to bottom, #cd9999db, #2196f3);
-        text-align: center;
-      }
-      .progress-container {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px;
-      }
-      .progress-bar {
-        width: 50%;
-        height: 30px;
-        background-color: #cb8a6a;
-        border: 1px solid #b24c4c;
-        position: relative;
-      }
-      button {
-        padding: 10px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-      #certificate-section {
-        display: none;
-      }
-      #video-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      video {
-        width: 80%;
-        max-width: 640px;
-      }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("img55.avif");
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 50%;
+            width: 50%;
+        }
+
+        .video-container {
+            margin-bottom: 60px;
+            height: 50%;
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #000;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0;
+            background: green;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
-  </head>
-  <body>
-    <div id="video-section">
-      <h2>Video Section</h2>
-      <video id="myVideo" controls>
-        <source src="5 At_-_Home Exercises _to _Lose Belly Fat (CRAZY FAST).mp4" />
-        Your browser does not support the video tag.
-      </video>
+</head>
+<body>
+    <div class="container">
+        <div class="video-container">
+            <video id="videoPlayer" controls>
+                <source id="videoSource" src="" type="video/mp4">
+            </video>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" style="width: 0;"></div>
+        </div>
+        <div class="button-container">
+            <button id="button1">DAY 1</button>
+            <button id="button2">DAY 2</button>
+            <button id="button3">DAY 3</button>
+            <button id="button4">DAY 4</button>
+            <button id="button5">DAY 5</button>
+            <button id="completeButton">Complete Task</button>
+        </div>
     </div>
-    <h1>Your Task Bars</h1>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress1">0%</div>
-      <button onclick="increaseProgress(1)">DAY 1</button>
-    </div>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress2">0%</div>
-      <button onclick="increaseProgress(2)">DAY2</button>
-    </div>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress3">0%</div>
-      <button onclick="increaseProgress(3)">DAY 3</button>
-    </div>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress4">0%</div>
-      <button onclick="increaseProgress(4)">DAY 4</button>
-    </div>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress5">0%</div>
-      <button onclick="increaseProgress(5)">DAY 5</button>
-    </div>
-
-    <div id="certificate-section">
-      <h2>Certificate Section</h2>
-      <a href="certi.html" download>
-        <button>Download Certificate</button>
-      </a>
-    </div>
-
     <script>
-      let progressBars = [80, 80, 80, 80, 80];
+        const progressBar = document.querySelector('.progress');
 
-      function increaseProgress(taskNumber) {
-        if (progressBars[taskNumber - 1] < 100) {
-          progressBars[taskNumber - 1] += 20;
-          document.getElementById(`progress${taskNumber}`).style.width =
-            progressBars[taskNumber - 1] + "%";
-          document.getElementById(`progress${taskNumber}`).textContent =
-            progressBars[taskNumber - 1] + "%";
-        }
+        let progress = 0;
+        const increment = 100 / 5; // 5 buttons
 
-        if (progressBars.every((progress) => progress >= 100)) {
-          document.getElementById("certificate-section").style.display =
-            "block";
-        }
-      }
+        document.getElementById('button1').addEventListener('click', function() {
+            document.getElementById('videoSource').src = 'video1.mp4';
+            document.getElementById('videoPlayer').load();
+            progress += increment;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        document.getElementById('button2').addEventListener('click', function() {
+            document.getElementById('videoSource').src = 'video2.mp4';
+            document.getElementById('videoPlayer').load();
+            progress += increment;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        document.getElementById('button3').addEventListener('click', function() {
+            document.getElementById('videoSource').src = 'video3.mp4';
+            document.getElementById('videoPlayer').load();
+            progress += increment;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        document.getElementById('button4').addEventListener('click', function() {
+            document.getElementById('videoSource').src = 'video4.mp4';
+            document.getElementById('videoPlayer').load();
+            progress += increment;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        document.getElementById('button5').addEventListener('click', function() {
+            document.getElementById('videoSource').src = 'video5.mp4';
+            document.getElementById('videoPlayer').load();
+            progress += increment;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        document.getElementById('completeButton').addEventListener('click', function() {
+            alert('Task Completed!');
+            // You can add additional actions here after task completion
+        });
     </script>
-  </body>
+</body>
 </html>
 
