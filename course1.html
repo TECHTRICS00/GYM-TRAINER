@@ -3,51 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Video Player</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url("img55.avif");
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 50%;
-            width: 50%;
-        }
-
-        .video-container {
-            margin-bottom: 60px;
-            height: 50%;
-        }
-
-        .progress-bar {
-            width: 300px;
-            height: 20px;
-            background: #fff;
-            border: 1px solid #000;
-            margin-bottom: 20px;
-        }
-
-        .progress {
-            height: 100%;
-            width: 0;
-            background: green;
-        }
-
-        button {
-            margin: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -55,9 +11,7 @@
             <video id="videoPlayer" controls>
                 <source id="videoSource" src="" type="video/mp4">
             </video>
-        </div>
-        <div class="progress-bar">
-            <div class="progress" style="width: 0;"></div>
+            <div id="textSection" class="text-section"></div>
         </div>
         <div class="button-container">
             <button id="button1">DAY 1</button>
@@ -66,54 +20,109 @@
             <button id="button4">DAY 4</button>
             <button id="button5">DAY 5</button>
             <button id="completeButton">Complete Task</button>
+            <div class="progress-bar">
+                <div class="progress" style="width: 0;"></div>
+            </div>
         </div>
     </div>
-    <script>
-        const progressBar = document.querySelector('.progress');
-
-        let progress = 0;
-        const increment = 100 / 5; // 5 buttons
-
-        document.getElementById('button1').addEventListener('click', function() {
-            document.getElementById('videoSource').src = 'video1.mp4';
-            document.getElementById('videoPlayer').load();
-            progress += increment;
-            progressBar.style.width = `${progress}%`;
-        });
-
-        document.getElementById('button2').addEventListener('click', function() {
-            document.getElementById('videoSource').src = 'video2.mp4';
-            document.getElementById('videoPlayer').load();
-            progress += increment;
-            progressBar.style.width = `${progress}%`;
-        });
-
-        document.getElementById('button3').addEventListener('click', function() {
-            document.getElementById('videoSource').src = 'video3.mp4';
-            document.getElementById('videoPlayer').load();
-            progress += increment;
-            progressBar.style.width = `${progress}%`;
-        });
-
-        document.getElementById('button4').addEventListener('click', function() {
-            document.getElementById('videoSource').src = 'video4.mp4';
-            document.getElementById('videoPlayer').load();
-            progress += increment;
-            progressBar.style.width = `${progress}%`;
-        });
-
-        document.getElementById('button5').addEventListener('click', function() {
-            document.getElementById('videoSource').src = 'video5.mp4';
-            document.getElementById('videoPlayer').load();
-            progress += increment;
-            progressBar.style.width = `${progress}%`;
-        });
-
-        document.getElementById('completeButton').addEventListener('click', function() {
-            alert('Task Completed!');
-            // You can add additional actions here after task completion
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
+<style>
+    /* Your existing styles */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       background-image: url("img55.avif");
+    }
 
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-container {
+        margin-bottom: 20px;
+        position: relative;
+        align-items: center;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    .progress-bar {
+        width: 100%;
+        background: #333;
+        margin-top: 20px;
+    }
+
+    .progress {
+        height: 20px;
+        background: green; /* Change this to the desired color */
+        transition: width 0.3s ease-in-out;
+    }
+
+    .text-section {
+        text-align: center;
+        margin-top: 20px;
+        display: none; /* Initially hidden */
+    }
+</style>
+<script>
+    // Your existing script
+    document.getElementById('button1').addEventListener('click', function() {
+        document.getElementById('videoSource').src = 'video1.mp4';
+        document.getElementById('videoPlayer').load();
+        updateProgress(20); // Progress for Day 1 // Display text for Day 1
+        displayText("Task for Day 1"); // Display text for Day 1
+    });
+
+    document.getElementById('button2').addEventListener('click', function() {
+        document.getElementById('videoSource').src = 'video2.mp4';
+        document.getElementById('videoPlayer').load();
+        updateProgress(40); // Progress for Day 2
+        displayText("Task for Day 2"); // Display text for Day 2
+    });
+
+    document.getElementById('button3').addEventListener('click', function() {
+        document.getElementById('videoSource').src = 'video3.mp4';
+        document.getElementById('videoPlayer').load();
+        updateProgress(60); // Progress for Day 3
+        displayText("Task for Day 3"); // Display text for Day 3
+    });
+
+    document.getElementById('button4').addEventListener('click', function() {
+        document.getElementById('videoSource').src = 'video4.mp4';
+        document.getElementById('videoPlayer').load();
+        updateProgress(80); // Progress for Day 4
+        displayText("Task for Day 4"); // Display text for Day 4
+    });
+
+    document.getElementById('button5').addEventListener('click', function() {
+        document.getElementById('videoSource').src = 'video5.mp4';
+        document.getElementById('videoPlayer').load();
+        updateProgress(100); // Progress for Day 5
+        displayText("Task for Day 5"); // Display text for Day 5
+    });
+
+    document.getElementById('completeButton').addEventListener('click', function() {
+        alert('Task Completed!');
+        // You can add additional actions here after task completion
+    });
+
+    function updateProgress(percentage) {
+        document.querySelector('.progress').style.width = percentage + '%';
+    }
+
+    function displayText(text) {
+        const textSection = document.getElementById('textSection');
+        textSection.innerHTML = text;
+        textSection.style.display = 'block';
+    }
+</script>
